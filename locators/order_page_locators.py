@@ -4,6 +4,7 @@ from selenium.webdriver.common.by import By
 class OrderCard:
     UPPER_BUTTON_GET_ORDER = By.XPATH, ("//*[@class='Button_Button__ra12g' and text("
                                         ")='Заказать']")
+    DOWN_BUTTON_GET_ORDER = By.XPATH, ".//div[5]/button"
     # Карточка заказа
     NAME = By.XPATH, "//*[@placeholder = '* Имя']"
     SURNAME = By.XPATH, "//*[@placeholder = '* Фамилия']"

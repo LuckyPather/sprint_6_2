@@ -1,8 +1,11 @@
 import allure
+import pytest
+
 from pages.other_function import OtherFunction
 from data import Url
 
 
+@pytest.mark.other_function
 @allure.suite("Другие функции")
 @allure.sub_suite("Редирект и переход")
 @allure.description('Проверяем кнопки редиректа и перехода с главного окна')

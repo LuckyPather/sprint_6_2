@@ -2,7 +2,10 @@
 import time
 
 import allure
+from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 from pages.base_page import BasePage
 from locators.order_page_locators import OrderCard
@@ -10,10 +13,11 @@ from locators.order_page_locators import OrderCard
 
 class OrderPage(BasePage):
     @allure.step("Заполняю форму заказа")
-    def create_order(self, name, surname, address, metro_station, phone_number, option_term, locator_for_colors,
+    def create_order(self, button, name, surname, address, metro_station, phone_number, option_term, locator_for_colors,
                      comment):
         self.accept_cookie()
-        self.click_to_element(OrderCard.BUTTON_GET_ORDER)
+        self.scroll_to_element(button)
+        self.click_to_element(button)
         self.send_keys(OrderCard.NAME, name)
         self.send_keys(OrderCard.SURNAME, surname)
         self.send_keys(OrderCard.ADDRESS, address)

@@ -11,7 +11,7 @@ class Generator:
         fake = Faker('ru_RU')
         self.name = fake.first_name()
         self.surname = fake.last_name()
-        self.address = re.sub(r'[^a-zA-Zа-яА-Я0-9\s,\.]', '', fake.address())
+        self.address = re.sub(r'[^a-яА-Я0-9\s,]', '', fake.address())
         self.metro_station = random.randint(1, 5)
         self.phone_number = random.choice(OrderData.phone_numbers)
         self.data = fake.date_this_month().strftime('%d.%m.%Y')

@@ -5,6 +5,7 @@ from pages.main_page import MainPage
 from data import AnswerText, QuestionText, Url
 
 
+@pytest.mark.main_page
 @allure.suite("Главная страница")
 @allure.sub_suite("Меню вопросов и ответов")
 class TestMainPage:

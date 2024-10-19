@@ -33,7 +33,7 @@ class BasePage:
         return method, locator
 
     def scroll_to_element(self, locator):
-        element = WebDriverWait(self.driver, 5).until(expected_conditions.element_to_be_clickable(locator))
+        element = WebDriverWait(self.driver, 10).until(expected_conditions.presence_of_element_located(locator))
         self.driver.execute_script("arguments[0].scrollIntoView();", element)
 
     def accept_cookie(self):
