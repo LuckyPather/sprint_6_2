@@ -26,4 +26,4 @@ class TestOrderPage:
                                     generator.phone_number, generator.option_term,
                                     generator.colors, generator.comment)
 
-            assert "Заказ оформлен" in order_page.get_text_from_element(OrderCard.SUCCESS_MESSAGE), "Проверка не прошла"
+            assert "Заказ оформлен" in order_page.get_success_status(), "Проверка не прошла"

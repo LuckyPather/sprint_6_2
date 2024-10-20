@@ -1,11 +1,5 @@
-# Todo: тут я должен создать метод, который принимает тип кнопки заказать, заполняет ордер потом в тесте я проверяю сообщение
-import time
-
 import allure
-from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
 
 from pages.base_page import BasePage
 from locators.order_page_locators import OrderCard
@@ -38,3 +32,7 @@ class OrderPage(BasePage):
         self.send_keys(OrderCard.COMMENT, comment)
         self.click_to_element(OrderCard.BUTTON_GET_ORDER)
         self.click_to_element(OrderCard.BUTTON_YES)
+
+    def get_success_status(self):
+        message = self.get_text_from_element(OrderCard.SUCCESS_MESSAGE)
+        return message

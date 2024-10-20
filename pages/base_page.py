@@ -38,3 +38,15 @@ class BasePage:
 
     def accept_cookie(self):
         self.click_to_element(MainPageLocators.ACCEPT_COOKIE_BUTTON_UPPER)
+
+    def redirect_get_handles(self, locator, number):
+        self.click_to_element(locator)
+        WebDriverWait(self.driver, 10).until(lambda d: len(d.window_handles) > number)
+        number_tabs = len(self.driver.window_handles)
+        return number_tabs
+
+    def switch_to_window_and_get_url(self, number, url):
+        self.driver.switch_to.window(self.driver.window_handles[number])
+        WebDriverWait(self.driver, 10).until(lambda d: d.current_url == url)
+        url = self.driver.current_url
+        return url
